@@ -31,8 +31,15 @@ namespace P2FixAnAppDotNetCode.Models.Services
         /// </summary>
         public Product GetProductById(int id)
         {
-            // TODO implement the method
-            return null;
+            Product[] products = GetAllProducts();
+            for (int i = 0; i < products.Length; i++)
+            {
+                if (products[i].Id == id)
+                {
+                    return products[i];
+                }
+            }
+                return null;
         }
 
         /// <summary>

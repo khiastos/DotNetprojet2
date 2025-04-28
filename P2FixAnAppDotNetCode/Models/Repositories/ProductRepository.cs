@@ -10,10 +10,16 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
     {
         private static List<Product> _products;
 
+        /// <summary>
+        /// Init product data without deleting it
+        /// </summary>
         public ProductRepository()
         {
-            _products = new List<Product>();
-            GenerateProductData();
+            if (_products is null)
+            {
+                _products = new List<Product>();
+                GenerateProductData();
+            }
         }
 
         /// <summary>
@@ -22,6 +28,7 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         private void GenerateProductData()
         {
             int id = 0;
+
             _products.Add(new Product(++id, 10, 92.50, "Echo Dot", "(2nd Generation) - Black"));
             _products.Add(new Product(++id, 20, 9.99, "Anker 3ft / 0.9m Nylon Braided", "Tangle-Free Micro USB Cable"));
             _products.Add(new Product(++id, 30, 69.99, "JVC HAFX8R Headphone", "Riptidz, In-Ear"));
@@ -41,13 +48,17 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         /// <summary>
         /// Update the stock of a product in the inventory by its id
         /// </summary>
-        public void UpdateProductStocks(int productId, int quantityToRemove)
+        public int UpdateProductStocks(int productId, int quantityToRemove)
         {
             Product product = _products.First(p => p.Id == productId);
-            product.Stock = product.Stock - quantityToRemove;
 
             if (product.Stock == 0)
                 _products.Remove(product);
+            else
+            {
+                product.Stock = product.Stock - quantityToRemove;
+            }
+            return product.Stock;
         }
     }
 }

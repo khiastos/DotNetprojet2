@@ -1,4 +1,4 @@
-# Projet 1 : Déboguez une application .NET
+# Projet 2 : Déboguez une application .NET
 
 Ce projet est une **correction d'un site web développé en .NET**, dans le cadre de ma formation "Développeur d'application back-end .NET".  
 Il est basé sur un projet existant mais modifié dans une branche dédiée à ma version contenant mon travail final qui était d'implémenter les TODO du projet.

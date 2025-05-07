@@ -30,7 +30,7 @@ Il est basé sur un projet existant mais modifié dans une branche dédiée à m
 Pour consulter ou exécuter ma version, il faut cloner le dépôt avec cette branche directement :
 
 ```bash
-git cd [emplacement souhaité pour y copier le projet]
+cd [emplacement souhaité pour y copier le projet]
 git clone -b dev https://github.com/khiastos/Projet-2-OC.git
 ```
 
